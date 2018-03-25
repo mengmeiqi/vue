@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2.v-if</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <div v-if='isLogin'>欢迎你：唯创</div>
+        <div v-else>请登录</div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'Hello World!',
+                isLogin:false
+            }
+        });
+    </script>
+</body>
+</html>
