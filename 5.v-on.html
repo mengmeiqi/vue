@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.v-on</title>
+    <style>
+        .div1{
+            width:400px;
+            height:400px;
+            background: #ff0000;
+        }
+        .div2{
+            width:200px;
+            height:200px;
+            background: #0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="add(2,$event)">add</button>
+        <div>{{count}}</div>
+        <input type="text" @keyup.enter="handler" v-model="keyword"/>
+        <button v-on="{mousedown:doThis,mouseup:doThat}">btn</button>
+        <div class="div1" @click="clickDiv1">
+            <div class="div2" @click.stop="clickDiv2"></div>
+        </div>
+        <a href="http://www.baidu.com" @click.prevent="baiduHandler($event)">baidu</a>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                count:0,
+                keyword:0
+            },
+            methods:{
+                add:function(num,e){
+                    this.count += num;
+                },
+                handler:function(){
+                    this.count += parseInt(this.keyword);
+                },
+                doThis:function(){
+                    console.log('doThis');
+                },
+                doThat:function(){
+                    console.log('doThat');
+                },
+                clickDiv1:function(){
+                    console.log('clickDiv1');
+                },
+                clickDiv2:function(){
+                    console.log('clickDiv2');
+//                    e.stopPropagation();
+                },
+                baiduHandler:function(e){
+//                    e.preventDefault();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
