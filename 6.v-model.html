@@ -36,6 +36,10 @@
                 <option value="黑大">黑大</option>
             </select>
             <div>学校是：{{school}}</div>
+
+            说明：
+            <textarea name="" id="" cols="30" rows="10" v-model="description"></textarea>
+            <div>说明：{{description}}</div>
         </form>
     </div>
     <script src="vue.js"></script>
@@ -46,7 +50,8 @@
                 username:'',
                 sex:'',
                 hobby: [],
-                school:''
+                school:'',
+                description:''
             }
         });
     </script>
