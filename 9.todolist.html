@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>9.todolist</title>
+    <style>
+        #app{
+            width:500px;
+            margin:100px auto;
+        }
+        #app h1{
+            text-align:center;
+        }
+        #list{
+            padding:0;
+        }
+        #list li{
+            list-style:none;
+            height:40px;
+            line-height:40px;
+            padding:0 20px;
+            background: #ccc;
+            color:#fff;
+            margin-top:10px;
+            cursor: pointer;
+        }
+        #list .productName{
+            float:left;
+        }
+        #list .productPrice{
+            float:right;
+        }
+        #list input[type="checkbox"] {
+            float: left;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>List</h1>
+        <hr>	
+        产品名称：<input type="text" placeholder="请输入产品名称">
+        <br>
+        产品价格：<input type="text" placeholder="请输入产品价格">
+        <button>添加</button>
+        <br>
+        <input type="text" placeholder="请输入搜索关键字">
+        <button>搜索</button>
+        <ul id="list">
+            <li v-for="productList in listArr">
+                <input type="checkbox">
+                <span class="productName">{{productList.name}}</span>
+                <span class="productPrice">￥{{productList.price}}</span>
+            </li>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                listArr:[
+                    {
+                        name:'衣服',
+                        price:20,
+                        city:'沈阳'
+                    },
+                    {
+                        name:'裤子',
+                        price:50,
+                        city:'北京'
+                    },
+                    {
+                        name:'鞋',
+                        price:30,
+                        city:'上海'
+                    },
+                    {
+                        name:'包',
+                        price:60,
+                        city:'深圳'
+                    }
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
