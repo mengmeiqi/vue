@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>7.v-bind</title>
+    <style>
+        .aa{
+            width:200px;
+            height:200px;
+            background: #ff0000;
+        }
+        .bb{
+            background: #00ff00;
+        }
+        .active{
+            height:300px;
+            width:300px;
+            background: #ff0000;
+        }
+        .text-danger{
+            border:2px solid #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <img :src="imgSrc" :alt="imgAlt">
+        <div :class="clsName">div1</div>
+        <div :class="{bb:isBb}">div2</div>
+        <div :class="{aa:isAa,bb:isBb}">div3</div>
+        <div :style="styleObj">div4</div>
+        <div v-bind:class="[activeClass,errorClass]"></div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                imgSrc:'http://cn.vuejs.org/images/logo.png',
+                imgAlt:'图片加载失败了',
+                clsName:'aa',
+                isAa:true,
+                isBb:true,
+                styleObj:{
+                    width:'200px',
+                    'background-color':'#ccc'
+                },
+                activeClass:'active',
+                errorClass:'text-danger'                
+            }
+        });
+    </script>
+</body>
+</html>
