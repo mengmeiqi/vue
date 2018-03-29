@@ -36,6 +36,9 @@
             float: left;
             margin-top: 15px;
         }
+        #list .del{
+            float:left;
+        }
         #list .red{
             background: #ff0000;
         }
@@ -53,8 +56,9 @@
         <input type="text" placeholder="请输入搜索关键字">
         <button>搜索</button>
         <ul id="list">
-            <li v-for="productList in listArr" @click="select(productList)" :class="{red:productList.isRed}" >
+            <li v-for="(productList,index) in listArr" @click="select(productList)" :class="{red:productList.isRed}" >
                 <input type="checkbox">
+                <span class="del" @click.stop="del(index)">[X]</span>
                 <span class="productName">{{productList.name}}</span>
                 <span class="productPrice">￥{{productList.price}}</span>
             </li>
@@ -93,8 +97,11 @@
                 ]
             },
             methods:{
-                select(product){
+                select:function(product){
                     product.isRed = !product.isRed;
+                },
+                del:function(index){
+                    this.listArr.splice(index,1);
                 }
             }
         });
