@@ -36,6 +36,9 @@
             float: left;
             margin-top: 15px;
         }
+        #list .red{
+            background: #ff0000;
+        }
     </style>
 </head>
 <body>
@@ -50,7 +53,7 @@
         <input type="text" placeholder="请输入搜索关键字">
         <button>搜索</button>
         <ul id="list">
-            <li v-for="productList in listArr">
+            <li v-for="productList in listArr" @click="select(productList)" :class="{red:productList.isRed}" >
                 <input type="checkbox">
                 <span class="productName">{{productList.name}}</span>
                 <span class="productPrice">￥{{productList.price}}</span>
@@ -66,24 +69,33 @@
                     {
                         name:'衣服',
                         price:20,
-                        city:'沈阳'
+                        city:'沈阳',
+                        isRed:false
                     },
                     {
                         name:'裤子',
                         price:50,
-                        city:'北京'
+                        city:'北京',
+                        isRed:false
                     },
                     {
                         name:'鞋',
                         price:30,
-                        city:'上海'
+                        city:'上海',
+                        isRed:false
                     },
                     {
                         name:'包',
                         price:60,
-                        city:'深圳'
+                        city:'深圳',
+                        isRed:false
                     }
                 ]
+            },
+            methods:{
+                select(product){
+                    product.isRed = !product.isRed;
+                }
             }
         });
     </script>
