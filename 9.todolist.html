@@ -119,11 +119,11 @@
                         return true;
                     });           
                     */
-                    let arr = this.listArr.filter((val,idx)=>{
+                    let arr = this.listArr.filter((val,idx) => {
                         if(!this.checked.includes(idx)){
                             return val;
                         }
-                    });     
+                    });
                     this.listArr = arr;
                     this.checked = [];
                 }
