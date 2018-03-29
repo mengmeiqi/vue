@@ -57,7 +57,7 @@
         <button>搜索</button>
         <ul id="list">
             <li v-for="(productList,index) in listArr" @click="select(productList)" :class="{red:productList.isRed}" >
-                <input type="checkbox" v-model="checked" :value="index">
+                <input type="checkbox" v-model="checked" :value="index" @click.stop="">
                 <span class="del" @click.stop="del(index)">[X]</span>
                 <span class="productName">{{productList.name}}</span>
                 <span class="productPrice">￥{{productList.price}}</span>
@@ -111,6 +111,14 @@
                     //删除从index开始的一个元素，返回删除后的新数组
                 },
                 delAll(){
+                    /*
+                    var r = arr.filter(function (element, index, self) {
+                        console.log(element); // 依次打印'A', 'B', 'C'
+                        console.log(index); // 依次打印0, 1, 2
+                        console.log(self); // self就是变量arr
+                        return true;
+                    });           
+                    */
                     let arr = this.listArr.filter((val,idx)=>{
                         if(!this.checked.includes(idx)){
                             return val;
