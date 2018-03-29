@@ -57,12 +57,16 @@
         <button>搜索</button>
         <ul id="list">
             <li v-for="(productList,index) in listArr" @click="select(productList)" :class="{red:productList.isRed}" >
-                <input type="checkbox">
+                <input type="checkbox" v-model="checked" :value="index">
                 <span class="del" @click.stop="del(index)">[X]</span>
                 <span class="productName">{{productList.name}}</span>
                 <span class="productPrice">￥{{productList.price}}</span>
             </li>
         </ul>
+        <div id="total">
+            <button @click="delAll">删除选中</button>
+            <!-- 总价：{{}} -->
+        </div>
     </div>
     <script src="vue.js"></script>
     <script>
@@ -94,7 +98,8 @@
                         city:'深圳',
                         isRed:false
                     }
-                ]
+                ],
+                checked:[]
             },
             methods:{
                 select:function(product){
@@ -104,6 +109,15 @@
                     this.listArr.splice(index,1);
                     //splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。
                     //删除从index开始的一个元素，返回删除后的新数组
+                },
+                delAll(){
+                    let arr = this.listArr.filter((val,idx)=>{
+                        if(!this.checked.includes(idx)){
+                            return val;
+                        }
+                    });     
+                    this.listArr = arr;
+                    this.checked = [];
                 }
             }
         });
