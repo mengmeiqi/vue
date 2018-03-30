@@ -53,8 +53,8 @@
         产品价格：<input type="text" v-model="price" placeholder="请输入产品价格">
         <button @click="add">添加</button>
         <br>
-        <input type="text" placeholder="请输入搜索关键字">
-        <button v-model="keyword">搜索</button>
+        <input type="text" placeholder="请输入搜索关键字" v-model="keyword">
+        <button @click="search">搜索</button>
         <ul id="list">
             <li v-for="(productList,index) in listArr" @click="select(productList)" :class="{red:productList.isRed}" >
                 <input type="checkbox" v-model="checked" :value="index" @click.stop="">
@@ -102,7 +102,7 @@
                 checked:[],
                 name:'',
                 price:0,
-            
+                keyword:''
             },
             methods:{
                 select:function(product){
@@ -147,6 +147,14 @@
                     });
                     this.name = '';
                     this.price = 0;
+                },
+                search:function(){
+                    let arr = this.listArr.filter((val,key) => {
+                        if(val.name.includes(this.keyword)){
+                            return val;
+                        }
+                    });
+                    this.listArr = arr;
                 }
             }
         });
