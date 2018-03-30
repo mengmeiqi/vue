@@ -54,7 +54,7 @@
         <button @click="add">添加</button>
         <br>
         <input type="text" placeholder="请输入搜索关键字">
-        <button>搜索</button>
+        <button v-model="keyword">搜索</button>
         <ul id="list">
             <li v-for="(productList,index) in listArr" @click="select(productList)" :class="{red:productList.isRed}" >
                 <input type="checkbox" v-model="checked" :value="index" @click.stop="">
