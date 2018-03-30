@@ -48,10 +48,10 @@
     <div id="app">
         <h1>List</h1>
         <hr>	
-        产品名称：<input type="text" placeholder="请输入产品名称">
+        产品名称：<input type="text" v-model="name" placeholder="请输入产品名称">
         <br>
-        产品价格：<input type="text" placeholder="请输入产品价格">
-        <button>添加</button>
+        产品价格：<input type="text" v-model="price" placeholder="请输入产品价格">
+        <button @click="add">添加</button>
         <br>
         <input type="text" placeholder="请输入搜索关键字">
         <button>搜索</button>
@@ -99,7 +99,10 @@
                         isRed:false
                     }
                 ],
-                checked:[]
+                checked:[],
+                name:'',
+                price:0,
+            
             },
             methods:{
                 select:function(product){
@@ -135,6 +138,15 @@
                         }
                     });
                     return sum;
+                },
+                add:function(){
+                    this.listArr.push({
+                        name:this.name,
+                        price:this.price,
+                        isRed:false
+                    });
+                    this.name = '';
+                    this.price = 0;
                 }
             }
         });
