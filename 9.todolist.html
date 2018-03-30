@@ -65,7 +65,7 @@
         </ul>
         <div id="total">
             <button @click="delAll">删除选中</button>
-            <!-- 总价：{{}} -->
+            总价：{{sum()}}
         </div>
     </div>
     <script src="vue.js"></script>
@@ -110,7 +110,7 @@
                     //splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。
                     //删除从index开始的一个元素，返回删除后的新数组
                 },
-                delAll(){
+                delAll:function(){
                     /*
                     var r = arr.filter(function (element, index, self) {
                         console.log(element); // 依次打印'A', 'B', 'C'
@@ -126,6 +126,15 @@
                     });
                     this.listArr = arr;
                     this.checked = [];
+                },
+                sum:function(){
+                    let sum = 0;
+                    this.listArr.forEach(function(val,idx){
+                        if(val.isRed){
+                            sum += parseInt(val.price);
+                        }
+                    });
+                    return sum;
                 }
             }
         });
