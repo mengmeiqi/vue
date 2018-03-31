@@ -24,7 +24,7 @@ vue知识点
                 }
             });
             console.log(vm);
-    </script>
+      </script>
 ### 4.指令
       (1)v-if v-else v-else-if v-show
       <div v-if="type == 'A'">欢迎你:唯创</div>
