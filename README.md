@@ -123,27 +123,27 @@ vue知识点
       (1)Vue.directive
             <h1 v-weichuang="aa">Hello world!</h1>
             Vue.directive('weichuang',{
-            bind:function(el,binding,vnode){
-            el.style.background = binding.value;
-            },
-            inserted:function(){
-            console.log('inserted');
-            },
-            update:function(){
-            console.log('update');
-            },
-            componentUpdated:function(){
-            console.log('componentUpdated');
-            },
-            unbind:function(){
-            console.log('unbind');
-            }
+                bind:function(el,binding,vnode){
+                    el.style.background = binding.value;
+                },
+                inserted:function(){
+                    console.log('inserted');
+                },
+                update:function(){
+                    console.log('update');
+                },
+                componentUpdated:function(){
+                    console.log('componentUpdated');
+                },
+                unbind:function(){
+                    console.log('unbind');
+                }
             });
             var vm = new Vue({
-            el:'#app',
-            data:{
-            aa:'green',
-            }
+                el:'#app',
+                data:{
+                    aa:'green',
+                }
             });
       (2)Vue.extend
             ①手动挂载 ②用在组件中
