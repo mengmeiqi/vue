@@ -1,5 +1,5 @@
 # vue
-vue知识点
+## vue知识点
 
 ### 1.网站：
     https://cn.vuejs.org/
