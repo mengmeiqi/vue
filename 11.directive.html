@@ -10,42 +10,22 @@
 
 <body>
     <div id="app">
-        <h1 v-weichuang="aa">hhhhh</h1>
+        <h1 v-weichuang='aa'>hhhhh</h1>
     </div>
 
     <script src="vue.js"></script>
 
     <script>
-        Vue.directive('weichuang', function(el, binding, vnode){
-            // el.style.background = binding.value;
+        Vue.directive('weichuang',function(el,binding,vnode){
+            el.style.background = binding.value;
             console.log(el);
             console.log(binding);
             console.log(vnode);
         });
-        
-        // Vue.directive('weichuang', {
-        //     bind(el, binding, vnode){
-        //         console.log('bind');
-        //         el.style.background = binding.value;
-        //     },
-        //     inserted(){
-        //         console.log('insterted');
-        //     },
-        //     update(){
-        //         console.log('update');
-        //     },
-        //     componentUpdated(){
-        //         console.log('componentUpdated');
-        //     },
-        //     unbind(){
-        //         console.log('unbind');
-        //     }
-        // });
-
         new Vue({
-            el: '#app',
-            data: {
-                aa: 'green'
+            el:'#app',
+            data:{
+                aa:'green'
             }
         });
 
