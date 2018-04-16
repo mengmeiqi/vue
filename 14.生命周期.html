@@ -41,24 +41,24 @@
         },
         mounted(){
             console.log('mounted');
-            this.timer = setInterval(()=>{
+                this.timer = setInterval(()=>{
                         console.log('timer');
-            this.msg++;
-        }, 1000);
-    },
-    beforeUpdate(){
-        console.log('beforeUpdate');
-    },
-    updated(){
-        console.log('updated');
-    },
-    beforeDestroy(){
-        console.log('beforeDestroy');
-        clearInterval(this.timer);
-    },
-    destroyed(){
-        console.log('destroyed');
-    }
+                this.msg++;
+            }, 1000);
+        },
+        beforeUpdate(){
+            console.log('beforeUpdate');
+        },
+        updated(){
+            console.log('updated');
+        },
+        beforeDestroy(){
+            console.log('beforeDestroy');
+            clearInterval(this.timer);
+        },
+        destroyed(){
+            console.log('destroyed');
+        }
     });
 </script>
 </body>
