@@ -23,28 +23,28 @@
             timer: null
         },
         methods: {
-            change(){
-        this.msg++;
+            change:function(){
+                this.msg++;
+        },
+        destroy(){
+            vm.$destroy();
+        }
     },
-    destroy(){
-        vm.$destroy();
-    }
-    },
-    beforeCreate(){
-        console.log('beforeCreate');
-    },
-    created(){
-        console.log('created');
-    },
-    beforeMount(){
-        console.log('beforeMount');
-    },
-    mounted(){
-        console.log('mounted');
-        this.timer = setInterval(()=>{
-                    console.log('timer');
-        this.msg++;
-    }, 1000);
+        beforeCreate(){
+            console.log('beforeCreate');
+        },
+        created(){
+            console.log('created');
+        },
+        beforeMount(){
+            console.log('beforeMount');
+        },
+        mounted(){
+            console.log('mounted');
+            this.timer = setInterval(()=>{
+                        console.log('timer');
+            this.msg++;
+        }, 1000);
     },
     beforeUpdate(){
         console.log('beforeUpdate');
