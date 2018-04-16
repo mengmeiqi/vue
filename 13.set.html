@@ -23,12 +23,12 @@
             list: ['a', 'b', 'c', 'd']        //在这里数组不允许通过下标去改值
         },
         methods: {
-            change() {
+            change:function() {
         // this.list[1] = 'e';
         // this.list.length = 0;
-        Vue.set(this.list, 1, 'e');
-    }
-    }
+                Vue.set(this.list, 1, 'e');
+            }
+        }
     });
 </script>
 </body>
