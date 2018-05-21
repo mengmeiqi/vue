@@ -181,7 +181,7 @@
             new MyComponent().$mount('#app');
       (3)Vue.set
             Vue.js里面不允许使用’数组[下标]’表示,vue不能通过索引设置数组的值,解决数组不能改变下标的问题或者在对象里面添加一个属性
-            var vm = new Vue({
+            var vm = new Vue({
                 el:'#app',
                 data:{
                     list:['a','b','c','d'],
