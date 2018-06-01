@@ -25,14 +25,13 @@
 <script>
     Vue.component('weichuang', {
         template: `
-    <div>
-    <h1>{{wcwx}}</h1>
-    <div>dididiv</div>
-    </div>
-    `,
-    props: ['wcwx']
+        <div>
+        <h1>{{wcwx}}</h1>
+        <div>dididiv</div>
+        </div>
+        `,
+        props: ['wcwx']
     });
-
     new Vue({
         el: '#app',
         data: {
@@ -44,15 +43,13 @@
         components: {
             myComponent: {
                 template: `<h1>{{aa}}--{{bb}}</h1>`,
-    props: ['aa', 'bb']
-    }
-    }
+                props: ['aa', 'bb']
+            }
+        }
     });
-
     new Vue({
         el: '#app2'
     });
 </script>
 </body>
-
 </html>

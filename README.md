@@ -359,6 +359,8 @@
               }
           }
       });
+      watch擅长处理的场景：一个数据影响多个数据；
+      computed擅长处理的场景：一个数据受多个数据影响。
 ### 17.Vue的双向数据绑定原理是什么？
       答：用ES5里面的 Object.defineProperty()，通过一个对象，建立起二者之间的关系，Vue里面就是通过监测Vue对象的data属性来实现的Object.defineProperty(); 访问器属性
       第一个参数：监听的哪个对象
